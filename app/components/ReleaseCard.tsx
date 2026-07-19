@@ -11,8 +11,10 @@ const typeLabels: Record<ReleaseType, string> = {
 export function ReleaseCard({ game, year }: { game: GameRelease; year: number }) {
   const gameSeries = seriesById.get(game.seriesId);
   return <article className="releaseCard todayReleaseCard" style={{ "--series-color": gameSeries?.color ?? "#58616b" } as React.CSSProperties}>
-    <h3>{game.title}</h3>
-    <div className="anniversaryBadge">{anniversaryInYear(game, year)}</div>
+    <div className="releaseTitleRow">
+      <h3>{game.title}</h3>
+      <div className="anniversaryBadge">{anniversaryInYear(game, year)}</div>
+    </div>
     <dl className="todayReleaseFacts">
       <div><dt>略称（カレンダー表示名）</dt><dd><strong className="shortTitleValue">{formatCalendarTitle(game)}</strong></dd></div>
       <div><dt>発売年月日</dt><dd>{formatJapaneseDate(game.releaseDate)}</dd></div>

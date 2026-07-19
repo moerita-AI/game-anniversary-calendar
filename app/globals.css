@@ -275,9 +275,12 @@ footer { text-align:center; padding:44px 20px calc(44px + env(safe-area-inset-bo
 .todayContent{margin-top:14px}
 .todayReleaseHeading{margin:11px 0 8px}
 .todayReleaseList{gap:8px}
-.todayReleaseCard{padding:18px 150px 18px 20px}
+.todayReleaseCard{padding:18px 20px}
+.releaseTitleRow{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:14px}
+.releaseTitleRow h3{min-width:0;overflow-wrap:anywhere}
+.releaseTitleRow .anniversaryBadge{position:static;right:auto;top:auto;align-self:start;white-space:nowrap}
 .todayReleaseCard h3{margin:0;font-size:19px;line-height:1.35}
-.todayReleaseCard .anniversaryBadge{right:18px;top:18px;padding:7px 10px;font-size:13px}
+.todayReleaseCard .anniversaryBadge{padding:7px 10px;font-size:13px}
 .todayReleaseFacts{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;margin:16px 0 0!important;padding-top:13px;border-top:1px solid #ebe7df}
 .todayReleaseFacts div{display:block!important;min-width:0}
 .todayReleaseFacts dt{font-size:11px!important}
@@ -286,8 +289,8 @@ footer { text-align:center; padding:44px 20px calc(44px + env(safe-area-inset-bo
 /* 詳細シートでは一覧から省いた情報をまとめて表示する。 */
 .modalList article{grid-template-columns:5px minmax(0,1fr);align-items:stretch}
 .modalGameContent{min-width:0}
-.modalGameTop{display:flex;align-items:center;justify-content:flex-end;gap:12px}
-.modalGameTop strong{flex:none;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--series-color) 12%,white)}
+.modalReleaseTitleRow h3{margin:0}
+.modalReleaseTitleRow .anniversaryBadge{padding:5px 9px;font-size:13px}
 .modalGameDetails .shortTitleValue{color:#404a54}
 .miniRelease b{color:var(--ink)}
 .modalGameDetails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;margin:16px 0 0;padding-top:14px;border-top:1px solid #ebe7df}
@@ -299,8 +302,10 @@ footer { text-align:center; padding:44px 20px calc(44px + env(safe-area-inset-bo
   .todayContent{margin-top:10px}
   .todayReleaseHeading{margin:8px 0 7px;font-size:16px}
   .todayReleaseCard{padding:15px 12px}
-  .todayReleaseCard h3{margin:0;padding-right:92px;font-size:16px;line-height:1.3}
-  .todayReleaseCard .anniversaryBadge{right:11px;top:12px;padding:5px 7px;font-size:11px}
+  .releaseTitleRow{gap:8px}
+  .todayReleaseCard h3{margin:0;padding-right:0;font-size:16px;line-height:1.3}
+  .todayReleaseCard .anniversaryBadge{padding:5px 7px;font-size:11px}
+  .modalReleaseTitleRow .anniversaryBadge{padding:5px 7px;font-size:11px}
   .todayReleaseFacts{grid-template-columns:1fr 1fr;gap:10px 12px;margin-top:13px!important;padding-top:11px}
   .todayReleaseFacts dt{font-size:10px!important}
   .todayReleaseFacts dd{font-size:12px!important}

@@ -17,8 +17,10 @@ export function ReleaseModal({ dateLabel, games, year, onClose }: { dateLabel: s
     return <article key={game.id} style={{ "--series-color": gameSeries?.color ?? "#58616b" } as React.CSSProperties}>
       <span className="colorBar" />
       <div className="modalGameContent">
-        <div className="modalGameTop"><strong>{anniversaryInYear(game, year)}</strong></div>
-        <h3>{game.title}</h3>
+        <div className="releaseTitleRow modalReleaseTitleRow">
+          <h3>{game.title}</h3>
+          <div className="anniversaryBadge">{anniversaryInYear(game, year)}</div>
+        </div>
         <dl className="modalGameDetails">
           <div><dt>略称（カレンダー表示名）</dt><dd><strong className="shortTitleValue">{formatCalendarTitle(game)}</strong></dd></div>
           <div><dt>発売年月日</dt><dd>{formatJapaneseDate(game.releaseDate)}</dd></div>
