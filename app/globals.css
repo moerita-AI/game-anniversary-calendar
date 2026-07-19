@@ -1,0 +1,332 @@
+@import "tailwindcss";
+
+:root { --ink:#17212b; --muted:#69727d; --paper:#f6f2e9; --white:#fff; --line:#ded9ce; --red:#d34b46; --blue:#3476bd; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"Hiragino Sans","Yu Gothic UI","Yu Gothic",system-ui,sans-serif; overflow-x:hidden; }
+button,a { font:inherit; }
+button { color:inherit; }
+button:focus-visible,a:focus-visible { outline:3px solid #2b7bbb; outline-offset:3px; }
+.siteHeader { height:78px; display:flex; align-items:center; justify-content:space-between; padding:0 max(24px,calc((100vw - 1180px)/2)); background:rgba(255,255,255,.92); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; backdrop-filter:blur(14px); }
+.brand { color:inherit; text-decoration:none; display:flex; align-items:center; gap:12px; }
+.brandMark { width:42px; height:42px; display:grid; place-items:center; background:var(--ink); color:#fff; font-family:Georgia,serif; font-weight:800; letter-spacing:-2px; border-radius:4px 14px 4px 4px; }
+.brand strong,.brand small { display:block; }.brand strong { letter-spacing:.13em; font:700 14px Georgia,serif; }.brand small { margin-top:2px; color:var(--muted); font-size:10px; letter-spacing:.08em; }
+.headerActions { display:flex; gap:6px; }.headerActions button { border:0; background:transparent; min-width:54px; height:58px; border-radius:12px; cursor:pointer; display:grid; place-items:center; align-content:center; gap:1px; }.headerActions button:hover { background:#f1eee7; }.headerActions span { font-size:22px; line-height:1; }.headerActions em { font-style:normal; font-size:10px; color:var(--muted); }
+main { max-width:1180px; margin:auto; padding:32px 24px 80px; }
+.hero { min-height:350px; border-radius:28px; background:var(--white); border:1px solid var(--line); position:relative; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:48px 7%; box-shadow:0 18px 50px rgba(34,39,42,.06); }
+.hero:before { content:""; position:absolute; width:420px; height:420px; border:1px solid #dfdad0; border-radius:50%; left:-100px; top:-105px; box-shadow:0 0 0 45px #faf8f2,0 0 0 46px #e9e4da; }
+.heroDate { position:relative; z-index:1; display:grid; width:max-content; }.heroDate>span { font:700 18px Georgia,serif; letter-spacing:.2em; border-bottom:2px solid var(--red); width:max-content; padding:0 2px 7px; }.heroDate strong { font:700 clamp(64px,10vw,112px)/.95 Georgia,serif; letter-spacing:-.07em; }.heroDate strong i { color:var(--red); font-style:normal; }.heroDate em { justify-self:end; font-style:normal; margin-top:10px; background:var(--ink); color:#fff; border-radius:999px; padding:6px 15px; font-size:13px; letter-spacing:.12em; }
+.heroCopy { position:relative; z-index:1; padding-left:10%; border-left:1px solid var(--line); }.kicker { color:var(--red); font:700 11px Georgia,serif; letter-spacing:.17em; }.heroCopy h1 { margin:12px 0 18px; font-size:clamp(32px,4vw,52px); line-height:1.32; letter-spacing:.04em; }.heroCopy mark { background:linear-gradient(transparent 64%,#eadfb9 0); color:inherit; padding:0 .08em; }.heroCopy p { color:var(--muted); line-height:1.9; font-size:14px; }.heroDecoration { position:absolute; right:22px; top:22px; color:#c9c2b6; display:flex; gap:10px; align-items:center; writing-mode:vertical-rl; font:700 9px Georgia,serif; letter-spacing:.25em; }
+.todaySection { margin-top:20px; }.calendarSection { margin-top:28px; }.sectionHeading,.calendarTop { display:flex; justify-content:space-between; align-items:end; margin-bottom:16px; }.sectionHeading h1,.calendarTop h2 { font-size:28px; margin:5px 0 0; }.publicationInfo { padding:12px 0; border-block:1px solid var(--line); color:#626c75; font-size:11px; line-height:1.7; }.publicationInfo>p { margin:0; color:#626c75; font-size:11px; }.publicationInfo>p+p { margin-top:1px; }.todayContent { margin-top:18px; }.todayDate { margin:0; color:#4f5962; font-size:14px; font-weight:800; }.todayReleaseHeading { margin:15px 0 10px; font-size:18px; }.countPill { background:var(--ink); color:#fff; border-radius:999px; padding:7px 13px; font-size:12px; }
+.siteDisclaimer { margin:9px 0 0; border:1px solid #d2ccc0; border-radius:10px; background:#f1eee7; color:#6a727a; font-size:10px; line-height:1.75; overflow:hidden; }.siteDisclaimer summary { display:flex; align-items:center; justify-content:space-between; min-height:42px; padding:6px 8px 6px 12px; cursor:pointer; list-style:none; color:#424b53; font-size:11px; font-weight:800; }.siteDisclaimer summary::-webkit-details-marker { display:none; }.disclaimerToggle { display:flex; align-items:center; gap:6px; min-height:28px; padding:0 9px; border:1px solid #bcb4a7; border-radius:999px; background:#fff; color:#3f4850; font-size:10px; }.disclaimerToggle b { font-size:16px; line-height:1; transform:translateY(-2px); }.whenOpen { display:none; }.siteDisclaimer[open] .whenClosed { display:none; }.siteDisclaimer[open] .whenOpen { display:inline; }.siteDisclaimer[open] .disclaimerToggle b { transform:rotate(180deg) translateY(2px); }.siteDisclaimerBody { padding:12px; border-top:1px solid #d7d2c8; background:#f7f4ee; }.siteDisclaimerBody section+section { margin-top:14px; padding-top:13px; border-top:1px solid #ded8cd; }.siteDisclaimerBody h3 { margin:0 0 6px; color:#424b53; font-size:12px; }.siteDisclaimer p { margin:0; }.siteDisclaimer p+p { margin-top:5px; }
+.releaseList { display:grid; gap:16px; }.releaseCard { position:relative; background:#fff; border:1px solid var(--line); border-left:5px solid var(--series-color); border-radius:18px; padding:24px 170px 24px 28px; box-shadow:0 8px 25px rgba(35,42,45,.04); }.seriesEyebrow { color:var(--series-color); font-size:11px; font-weight:800; letter-spacing:.08em; display:flex; align-items:center; gap:8px; }.seriesEyebrow span { width:8px; height:8px; border-radius:50%; background:var(--series-color); }.releaseCard h3 { font-size:22px; margin:8px 0 3px; }.releaseDate { margin:0; color:var(--muted); font-size:13px; }.anniversaryBadge { position:absolute; right:25px; top:25px; background:color-mix(in srgb,var(--series-color) 12%,white); color:var(--series-color); font-weight:800; border-radius:12px; padding:10px 14px; }.releaseCard dl { display:flex; gap:34px; margin:20px 0 0; }.releaseCard dl div { display:flex; gap:10px; }.releaseCard dt { color:var(--muted); font-size:11px; }.releaseCard dd { margin:0; font-size:12px; font-weight:700; }.textButton { position:absolute; right:26px; bottom:23px; border:0; background:none; color:var(--series-color); font-weight:800; font-size:12px; cursor:pointer; }
+.emptyState { background:#fff; border:1px dashed #c9c2b5; border-radius:20px; text-align:center; padding:44px 20px; }.emptyState>span { color:#b99742; font-size:26px; }.emptyState h3 { margin:8px 0; font-size:18px; }.emptyState p { color:var(--muted); font-size:13px; }.emptyState a { color:var(--ink); font-weight:800; font-size:13px; text-underline-offset:5px; }
+.calendarSection { background:#fff; border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 18px 40px rgba(35,40,43,.05); }.calendarTop { margin-bottom:20px; }.calendarActionArea { display:grid; justify-items:end; gap:8px; }.datePickerToggle { display:flex; align-items:center; gap:7px; min-height:38px; padding:5px 10px; border:1px solid #cfc8bb; border-radius:10px; background:#f3efe7; color:#3e4851; font-size:11px; font-weight:800; cursor:pointer; }.datePickerToggle>span:first-child { font-size:17px; }.datePickerToggle small { padding-left:7px; border-left:1px solid #cfc8bb; color:var(--muted); font-size:9px; font-weight:700; }.datePickerToggle[aria-expanded="true"] { border-color:#928675; background:#e9e3d8; }.calendarControls { display:flex; gap:7px; }.calendarControls button { height:42px; min-width:42px; border:1px solid var(--line); background:#fff; border-radius:10px; font-size:24px; cursor:pointer; }.calendarControls .todayButton { font-size:12px; padding:0 15px; }.datePickerPanel { margin:-4px 0 18px; padding:15px; border:1px solid #d5cfc3; border-radius:14px; background:#f4f1ea; }.datePickerPanel>label,.monthPickerLabel { display:block; margin-bottom:6px; color:#626b73; font-size:10px; font-weight:800; }.datePickerPanel select { width:100%; min-height:42px; padding:0 12px; border:1px solid #cbc4b7; border-radius:9px; background:#fff; color:var(--ink); font-size:14px; font-weight:800; cursor:pointer; }.monthPickerLabel { margin-top:13px; }.monthPickerGrid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:7px; }.monthPickerGrid button { min-height:40px; border:1px solid #d2cbbf; border-radius:9px; background:#fff; font-size:12px; font-weight:800; cursor:pointer; }.monthPickerGrid button:hover { background:#faf6ed; }.monthPickerGrid button.isSelected { border-color:#aa7625; background:#f3dfb5; color:#654812; box-shadow:inset 0 0 0 1px #aa7625; }.weekdayRow,.calendarGrid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); }.weekdayRow { border-block:1px solid var(--line); }.weekdayRow div { text-align:center; padding:10px 0; font-size:11px; font-weight:800; }.sunday { color:#c54845!important; }.saturday { color:#2f6ca6!important; }
+.calendarGrid { border-left:1px solid var(--line); }.calendarCell { min-width:0; min-height:148px; padding:8px; border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:#fff; text-align:left; cursor:pointer; overflow:hidden; display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; vertical-align:top; }.calendarCell:hover { background:#fbf8f1; }.calendarCell.outside { background:#f8f7f4; opacity:.48; }.calendarCell.isToday { background:#fff9e9; box-shadow:inset 0 0 0 2px #d79b31; }.dayNumber { flex:0 0 22px; width:100%; font:700 15px Georgia,serif; display:flex; justify-content:space-between; align-items:flex-start; line-height:1; }.dayNumber em { color:#8a601e; background:#f1dfb6; border-radius:999px; padding:2px 5px; font:700 8px sans-serif; }.dayReleases { display:grid; gap:6px; margin-top:5px; width:100%; }.miniRelease { min-width:0; display:grid; grid-template-columns:6px minmax(0,1fr); align-items:start; column-gap:5px; }.miniRelease i { width:6px; height:6px; margin-top:4px; border-radius:50%; }.miniRelease b { overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; white-space:normal; overflow-wrap:anywhere; font-size:10px; line-height:1.3; }.miniRelease small { grid-column:2; font-size:8px; line-height:1.25; color:var(--muted); }.moreCount { font-size:9px; color:var(--blue); font-weight:700; padding-left:11px; }.seriesLegend { display:flex; flex-wrap:wrap; gap:10px 18px; padding-top:18px; }.seriesLegend span { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--muted); }.seriesLegend i { width:7px; height:7px; border-radius:50%; }
+.registeredSection { margin-top:56px; }.registeredHeading { display:flex; align-items:end; justify-content:space-between; margin-bottom:18px; }.registeredHeading h2 { margin:5px 0 0; font-size:28px; }.registeredOrderNote { margin:6px 0 0; color:var(--muted); font-size:11px; }.registeredCount { color:var(--muted); font-size:12px; font-weight:700; }.titleFilter { margin-bottom:14px; padding:14px 16px; background:#ebe8e0; border-radius:14px; }.titleFilter>label { display:block; margin-bottom:7px; color:#59636c; font-size:11px; font-weight:800; }.titleFilterControl { display:flex; align-items:center; gap:9px; min-height:44px; padding:0 10px 0 13px; background:#fff; border:1px solid #d5d0c6; border-radius:10px; }.titleFilterControl>span { color:#77808a; font-size:20px; }.titleFilterControl input { min-width:0; flex:1; height:42px; padding:0; border:0; outline:0; background:transparent; color:var(--ink); font-size:13px; }.titleFilterControl input::placeholder { color:#9299a0; }.titleFilterControl button { flex:none; border:0; padding:6px 9px; border-radius:7px; background:#ece9e2; color:#555f68; font-size:10px; font-weight:800; cursor:pointer; }.registeredTableWrap { overflow:hidden; background:#fff; border:1px solid var(--line); border-radius:20px; box-shadow:0 12px 32px rgba(35,40,43,.04); }.registeredTable { width:100%; border-collapse:collapse; table-layout:fixed; }.registeredTable th,.registeredTable td { padding:15px 16px; border-bottom:1px solid #ebe7df; text-align:left; vertical-align:middle; font-size:12px; line-height:1.55; overflow-wrap:anywhere; }.registeredTable thead th { background:#f0ede6; color:#616a74; font-size:10px; letter-spacing:.06em; }.registeredTable thead th:first-child { width:30%; }.registeredTable thead th:nth-child(2) { width:18%; }.registeredTable thead th:nth-child(3) { width:24%; }.registeredTable thead th:nth-child(4) { width:12%; }.registeredTable thead th:nth-child(5) { width:16%; }.registeredTable tbody th { position:relative; padding-left:28px; font-size:13px; }.registeredTable tbody tr:last-child th,.registeredTable tbody tr:last-child td { border-bottom:0; }.registeredTable tbody tr:hover { background:#fbf9f4; }.registeredSeriesDot { position:absolute; left:15px; top:50%; width:6px; height:22px; border-radius:999px; background:var(--series-color); transform:translateY(-50%); }.shortTitleValue { color:#404a54; font-size:12px; }.releaseTypeTag { display:inline-block; padding:4px 8px; border-radius:999px; background:#ece9e3; color:#626a72; font-size:10px; font-weight:800; white-space:nowrap; }.releaseTypeTag.isOriginal { background:#e4eee8; color:#2f6849; }.registeredTable time { white-space:nowrap; font-variant-numeric:tabular-nums; }.registeredEmpty { padding:38px 20px; border:1px dashed #c9c2b5; border-radius:16px; background:#fff; text-align:center; }.registeredEmpty strong { font-size:15px; }.registeredEmpty p { margin:7px 0 15px; color:var(--muted); font-size:11px; }.registeredEmpty button { border:0; border-radius:9px; padding:9px 13px; background:var(--ink); color:#fff; font-size:11px; font-weight:800; cursor:pointer; }
+footer { text-align:center; padding:44px 20px calc(44px + env(safe-area-inset-bottom)); border-top:1px solid var(--line); background:#eeeadf; } footer>strong { font-family:Georgia,serif; } .footerDisclaimer { max-width:900px; margin:14px auto 0; color:var(--muted); font-size:10px; line-height:1.75; }.footerDisclaimer p { margin:0; }.footerDisclaimer p+p { margin-top:4px; } footer>small { display:block; margin-top:10px; color:var(--muted); font-size:10px; }
+.modalBackdrop { position:fixed; inset:0; z-index:50; background:rgba(17,25,32,.55); display:grid; place-items:center; padding:20px; backdrop-filter:blur(4px); }.releaseModal { background:#fff; width:min(680px,100%); max-height:min(760px,88vh); overflow:auto; border-radius:24px; padding:28px; box-shadow:0 30px 80px rgba(0,0,0,.25); }.releaseModal>header { display:flex; justify-content:space-between; align-items:start; }.releaseModal h2 { margin:4px 0; font-size:30px; }.releaseModal header p { color:var(--muted); margin:0; font-size:13px; }.closeButton { border:1px solid var(--line); background:#fff; width:42px; height:42px; border-radius:50%; font-size:24px; cursor:pointer; }.modalList { display:grid; gap:10px; margin-top:24px; }.modalList article { display:grid; grid-template-columns:5px 1fr auto; gap:16px; align-items:center; border:1px solid var(--line); padding:15px; border-radius:14px; }.colorBar { height:100%; background:var(--series-color); border-radius:5px; }.modalList small,.modalList p { color:var(--muted); font-size:10px; margin:0; }.modalList h3 { font-size:15px; margin:4px 0; }.modalList strong { color:var(--series-color); font-size:13px; }.sheetHandle { display:none; }
+@media(max-width:720px) { .siteHeader { height:66px; padding:0 14px; }.brandMark { width:36px;height:36px;}.brand strong{font-size:11px}.brand small{font-size:8px}.headerActions{gap:0}.headerActions button{min-width:43px;height:52px}.headerActions span{font-size:18px} main{padding:18px 12px 60px}.todaySection{margin-top:8px}.calendarSection{margin-top:42px}.sectionHeading h1,.calendarTop h2{font-size:22px}.releaseCard{padding:21px 18px}.releaseCard h3{font-size:18px;padding-right:86px}.anniversaryBadge{right:16px;top:18px;font-size:11px}.releaseCard dl{display:grid;gap:7px;margin-bottom:35px}.textButton{right:18px;bottom:18px}.calendarSection{padding:16px 8px;border-radius:18px}.calendarTop{padding:0 6px}.calendarControls button{height:38px;min-width:36px}.calendarControls .todayButton{padding:0 9px}.calendarCell{min-height:132px;padding:5px 3px}.dayNumber{font-size:13px;flex-basis:19px}.dayNumber em{display:none}.dayReleases{gap:4px;margin-top:4px}.miniRelease{grid-template-columns:5px minmax(0,1fr);gap:3px}.miniRelease i{margin-top:3px}.miniRelease b{font-size:9px;line-height:1.22}.miniRelease small{font-size:7px}.seriesLegend{padding:14px 5px 0}.modalBackdrop{align-items:end;padding:0}.releaseModal{border-radius:22px 22px 0 0;max-height:86vh;padding:16px 18px calc(24px + env(safe-area-inset-bottom))}.sheetHandle{display:block;width:42px;height:4px;background:#d5d0c8;border-radius:9px;margin:0 auto 18px}.modalList article{grid-template-columns:4px 1fr}.modalList article>strong{grid-column:2}.closeButton{width:44px;height:44px}}
+@media(max-width:720px) { .registeredSection{margin-top:42px}.registeredHeading h2{font-size:22px}.registeredHeading{align-items:start}.registeredCount{padding-top:22px}.titleFilter{padding:12px}.titleFilterControl input{font-size:12px}.registeredTableWrap{border:0;background:transparent;box-shadow:none;overflow:visible}.registeredTable,.registeredTable tbody{display:block}.registeredTable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.registeredTable tr{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-bottom:10px;padding:15px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 18px rgba(35,40,43,.035)}.registeredTable th,.registeredTable td{display:block;padding:0;border:0;font-size:11px}.registeredTable tbody th{grid-column:1/-1;padding:0 0 10px 13px;border-bottom:1px solid #ebe7df;font-size:13px}.registeredTable td::before{content:attr(data-label);display:block;margin-bottom:3px;color:var(--muted);font-size:9px;font-weight:700}.registeredSeriesDot{left:0;top:0;width:5px;height:calc(100% - 10px);transform:none}.registeredTable time{white-space:normal}}
+@media(max-width:360px){.brand small{display:none}.headerActions em{display:none}.headerActions button{min-width:38px}.calendarControls .todayButton{font-size:10px}.calendarCell{min-height:126px}.miniRelease small{display:none}.weekdayRow div{padding:8px 0}.releaseCard h3{padding-right:0;margin-top:45px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.titleFilterControl select { min-width:0; flex:1; height:42px; padding:0 30px 0 0; border:0; outline:0; background:transparent; color:var(--ink); font-size:13px; font-weight:700; cursor:pointer; }
+@media(max-width:720px){.titleFilterControl select{font-size:12px}}
+.todaySection.isEmpty .sectionHeading { margin-bottom:12px; }
+.todaySection.isEmpty + .calendarSection { margin-top:18px; }
+@media(max-width:720px){.todaySection.isEmpty + .calendarSection{margin-top:14px}}
+.todaySection .sectionHeading h1 { font-size:clamp(27px,4vw,40px); letter-spacing:.02em; }
+.unofficialLabel { margin-left:.45em; color:#8a9299; font-size:.36em; font-weight:500; letter-spacing:.02em; white-space:nowrap; vertical-align:.22em; }
+.todayReleaseList { margin:0; }
+@media(max-width:720px){.todaySection .sectionHeading h1{font-size:clamp(23px,7.5vw,26px);line-height:1.35}.publicationInfo{padding:10px 0;font-size:10px}.publicationInfo>p{font-size:10px;line-height:1.65}.todayContent{margin-top:14px}.todayDate{font-size:12px}.todayReleaseHeading{font-size:16px}.siteDisclaimer{font-size:9px;line-height:1.7}.siteDisclaimer summary{padding-inline:9px}.siteDisclaimerBody{padding:9px 10px 10px}.siteDisclaimerBody h3{font-size:11px}.footerDisclaimer{font-size:9px;line-height:1.7}.monthPickerGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.datePickerPanel{padding:12px 10px}.datePickerToggle{padding-inline:8px}.datePickerToggle small{display:none}}
+
+.calendarFilterRow { display:flex; justify-content:flex-end; margin:-7px 2px 6px; }
+.calendarSeriesFilter { display:inline-flex; align-items:center; gap:5px; padding:2px 3px; color:#7a8289; font-size:9px; line-height:1.4; cursor:pointer; }
+.calendarSeriesFilter input { flex:none; width:13px; height:13px; margin:0; accent-color:#786a55; }
+.scopeSummary { display:grid; gap:7px; margin:0; }
+.scopeSummary div { display:grid; grid-template-columns:54px minmax(0,1fr); gap:8px; }
+.scopeSummary dt { color:#4b545c; font-weight:800; }
+.scopeSummary dd { margin:0; }
+
+@media(max-width:560px){.calendarFilterRow{margin-top:-5px}.scopeSummary div{grid-template-columns:48px minmax(0,1fr)}}
+@media(max-width:720px){.calendarSection{padding-inline:2px}.calendarTop{padding-inline:10px}.calendarCell{padding-inline:1px}.miniRelease{position:relative;display:block;padding-left:4px}.miniRelease i{position:absolute;left:0;top:3px;width:3px;height:3px}.miniRelease b{font-size:8.5px;letter-spacing:-.02em}.miniRelease small{display:block;margin-top:1px}}
+
+/* 上部案内とカレンダーは、小さな画面でも読みやすい文字サイズにする。 */
+.publicationInfo,.publicationInfo>p { font-size:13px; line-height:1.75; }
+.siteDisclaimer { font-size:12px; line-height:1.8; }
+.siteDisclaimer summary { min-height:44px; font-size:13px; }
+.siteDisclaimerBody h3 { font-size:14px; }
+.scopeSummary { gap:9px; }
+.disclaimerToggle { width:30px; min-height:30px; justify-content:center; padding:0; }
+.disclaimerToggle b { width:8px; height:8px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; font-size:0; transform:rotate(45deg) translate(-1px,-1px); }
+.siteDisclaimer[open] .disclaimerToggle b { transform:rotate(225deg) translate(-1px,-1px); }
+.todayReleaseHeading { font-size:19px; }
+.seriesEyebrow { font-size:12px; }
+.releaseDate { font-size:14px; }
+.releaseCard dt { font-size:12px; }
+.releaseCard dd,.textButton { font-size:13px; }
+.datePickerToggle { font-size:12px; }
+.datePickerToggle small { font-size:10px; }
+.calendarControls .todayButton { font-size:13px; }
+.datePickerPanel>label,.monthPickerLabel { font-size:11px; }
+.datePickerPanel select { font-size:15px; }
+.monthPickerGrid button { font-size:13px; }
+.weekdayRow div { font-size:12px; }
+.dayNumber { font-size:16px; }
+.miniRelease b { font-size:11px; }
+.miniRelease small { font-size:9px; }
+.moreCount { font-size:10px; }
+.seriesLegend span { font-size:11px; }
+.calendarFilterRow { justify-content:flex-start; margin:-5px 2px 8px; }
+.calendarSeriesFilter { align-items:flex-start; gap:6px; font-size:11px; color:#606970; }
+.calendarSeriesFilter input { width:15px; height:15px; margin-top:1px; }
+.calendarSeriesFilter small { color:#737b82; font-size:10px; }
+
+@media(max-width:720px){
+  .publicationInfo,.publicationInfo>p{font-size:12px;line-height:1.75}
+  .siteDisclaimer{font-size:11px;line-height:1.75}
+  .siteDisclaimer summary{font-size:12px}
+  .siteDisclaimerBody h3{font-size:13px}
+  .todayReleaseHeading{font-size:17px}
+  .datePickerToggle{font-size:12px}
+  .calendarControls .todayButton{font-size:12px}
+  .weekdayRow div{font-size:12px}
+  .dayNumber{font-size:14px}
+  .miniRelease b{font-size:9px;letter-spacing:-.04em}
+  .miniRelease small{font-size:8px}
+  .moreCount{font-size:9.5px}
+  .seriesLegend span{font-size:10.5px}
+  .calendarSeriesFilter{font-size:10.5px}
+  .calendarSeriesFilter small{font-size:9.5px}
+}
+
+/* カレンダー本文と作品一覧の列構成を調整する。 */
+.registeredTable thead th:first-child { width:30%; }
+.registeredTable thead th:nth-child(2) { width:16%; }
+.registeredTable thead th:nth-child(3) { width:16%; }
+.registeredTable thead th:nth-child(4) { width:24%; }
+.registeredTable thead th:nth-child(5) { width:14%; }
+.calendarFilterArea { margin-bottom:10px; }
+.calendarFilterRow { margin:-5px 2px 0; }
+.calendarSeriesFilter>span,.calendarSeriesFilter strong,.calendarSeriesFilter small { display:block; }
+.calendarSeriesFilter strong { font-size:12px; }
+.calendarSeriesFilter small { margin-top:2px; font-size:11px; line-height:1.5; }
+.calendarTapHint { margin:5px 3px 0; color:#68717a; font-size:12px; line-height:1.5; }
+.datePickerToggle { font-size:13px; }
+.datePickerToggle small { font-size:11px; }
+.calendarControls .todayButton { font-size:14px; }
+.datePickerPanel>label,.monthPickerLabel { font-size:12px; }
+.monthPickerGrid button { font-size:14px; }
+.weekdayRow div { font-size:13px; }
+.calendarCell { min-height:162px; }
+.dayNumber { flex-basis:24px; font-size:17px; }
+.dayNumber em { font-size:9px; }
+.dayReleases { gap:7px; }
+.miniRelease b { font-size:12px; line-height:1.35; }
+.miniRelease small { font-size:10px; line-height:1.3; }
+.moreCount { font-size:11px; }
+.seriesLegend span { font-size:12px; }
+
+@media(max-width:720px){
+  .calendarSection{padding-inline:0}
+  .calendarCell{min-height:150px;padding-inline:0}
+  .calendarSeriesFilter{font-size:11px}
+  .calendarSeriesFilter strong{font-size:11px}
+  .calendarSeriesFilter small{font-size:10px}
+  .calendarTapHint{font-size:11.5px}
+  .datePickerToggle{font-size:12.5px}
+  .calendarControls .todayButton{font-size:13px}
+  .weekdayRow div{font-size:13px}
+  .dayNumber{font-size:15px;flex-basis:21px}
+  .miniRelease b{font-size:9.5px;line-height:1.28;letter-spacing:-.04em}
+  .miniRelease small{font-size:9px}
+  .moreCount{font-size:10px}
+  .seriesLegend span{font-size:11.5px}
+}
+@media(max-width:360px){.calendarCell{min-height:144px}}
+
+.todaySection .sectionHeading h1 { display:flex; align-items:center; gap:14px; }
+.titleText { display:block; min-width:0; }
+.titleCakeIcon { position:relative; flex:0 0 52px; width:52px; height:52px; border-radius:15px; background:#17212b; box-shadow:0 5px 14px rgba(23,33,43,.15); }
+.titleCakeIcon::before { content:""; position:absolute; left:9px; right:9px; bottom:8px; height:18px; border-radius:5px 5px 8px 8px; background:#f3d9a6; box-shadow:0 5px 0 -2px #d8e5e8; }
+.titleCakeIcon::after { content:""; position:absolute; left:9px; right:9px; bottom:23px; height:9px; border-radius:7px; background:#e88b91; }
+.titleCakeCandle { position:absolute; left:24px; top:14px; width:5px; height:17px; border-radius:3px; background:#f6f2e9; box-shadow:inset 2px 0 #bf5862; z-index:1; }
+.titleCakeFlame { position:absolute; left:23px; top:5px; width:7px; height:10px; border-radius:60% 40% 55% 45%; background:#f6b83f; transform:rotate(45deg); }
+
+@media(max-width:720px){
+  .todaySection .sectionHeading h1{gap:10px}
+  .titleCakeIcon{flex-basis:44px;width:44px;height:44px;border-radius:13px}
+  .titleCakeIcon::before{left:8px;right:8px;bottom:7px;height:15px}
+  .titleCakeIcon::after{left:8px;right:8px;bottom:20px;height:8px}
+  .titleCakeCandle{left:20px;top:12px;width:5px;height:15px}
+  .titleCakeFlame{left:19px;top:4px}
+}
+
+/* 誕生日らしい二段ケーキと紙吹雪。企業・作品ロゴには寄せない。 */
+.titleCakeIcon { background:
+  radial-gradient(circle at 18% 22%,#ffc34a 0 2px,transparent 2.5px),
+  radial-gradient(circle at 82% 25%,#ea8792 0 2px,transparent 2.5px),
+  radial-gradient(circle at 13% 48%,#72c8bf 0 2px,transparent 2.5px),
+  radial-gradient(circle at 88% 50%,#ffc34a 0 2px,transparent 2.5px),
+  linear-gradient(135deg,#152431,#2d4853); }
+.titleCakeIcon::before { left:6px; right:6px; bottom:5px; height:17px; border-radius:6px 6px 8px 8px; background:linear-gradient(#ea8792 0 35%,#f4d79b 35%); box-shadow:0 4px 0 -1px #d8e5e8; }
+.titleCakeIcon::after { left:13px; right:13px; bottom:20px; height:13px; border-radius:5px 5px 6px 6px; background:linear-gradient(#72c8bf 0 40%,#ffebc5 40%); }
+.titleCakeCandle { left:24px; top:11px; width:4px; height:13px; border-radius:2px; background:#f5f0dc; box-shadow:-8px 2px #63cbe7,8px 2px #f5a55a; }
+.titleCakeFlame { left:23px; top:4px; width:6px; height:8px; border-radius:60% 40% 55% 45%; background:#ffc34a; box-shadow:-8px 2px #ffc34a,8px 2px #ffc34a; }
+
+@media(max-width:720px){
+  .titleCakeIcon::before{left:5px;right:5px;bottom:5px;height:14px}
+  .titleCakeIcon::after{left:11px;right:11px;bottom:18px;height:11px}
+  .titleCakeCandle{left:20px;top:10px;width:4px;height:12px;box-shadow:-7px 2px #63cbe7,7px 2px #f5a55a}
+  .titleCakeFlame{left:19px;top:3px;width:6px;height:8px;box-shadow:-7px 2px #ffc34a,7px 2px #ffc34a}
+}
+
+/* タイトルと高さを揃えた、ろうそく3本のシンプルなケーキ。 */
+.todaySection .sectionHeading h1{gap:16px}
+.titleText{line-height:1.2}
+.titleCakeIcon{align-self:center;flex-basis:64px;width:64px;height:64px;border:2px solid #d9d2c6;border-radius:17px;background:#fffaf1;box-shadow:0 5px 14px rgba(23,33,43,.1)}
+.titleCakeIcon::before{left:9px;right:9px;bottom:10px;height:22px;border-radius:7px 7px 10px 10px;background:linear-gradient(#e88b91 0 34%,#f3d9a6 34%);box-shadow:0 5px 0 -2px #cbdcdf}
+.titleCakeIcon::after{left:8px;right:8px;bottom:27px;height:8px;border-radius:999px;background:#e88b91}
+.titleCakeCandle{left:28px;top:18px;width:5px;height:18px;border-radius:3px;background:#d95d68;box-shadow:-12px 2px #5fb8d0,12px 2px #e7a848}
+.titleCakeFlame{left:27px;top:8px;width:7px;height:10px;background:#f6b83f;box-shadow:-12px 2px #f6b83f,12px 2px #f6b83f}
+
+@media(max-width:720px){
+  .todaySection .sectionHeading h1{gap:10px}
+  .titleText{line-height:1.24}
+  .titleCakeIcon{flex-basis:52px;width:52px;height:52px;border-radius:14px}
+  .titleCakeIcon::before{left:7px;right:7px;bottom:8px;height:18px}
+  .titleCakeIcon::after{left:6px;right:6px;bottom:22px;height:7px}
+  .titleCakeCandle{left:22px;top:15px;width:4px;height:15px;box-shadow:-10px 2px #5fb8d0,10px 2px #e7a848}
+  .titleCakeFlame{left:21px;top:6px;width:7px;height:9px;box-shadow:-10px 2px #f6b83f,10px 2px #f6b83f}
+  .calendarCell{min-height:108px}
+  .calendarCell.hasBusyWeek{min-height:150px}
+}
+
+@media(max-width:360px){
+  .calendarCell{min-height:102px}
+  .calendarCell.hasBusyWeek{min-height:144px}
+}
+
+/* PCでは本文と操作部を一段階大きくし、スマートフォンの表示は維持する。 */
+@media(min-width:721px){
+  .publicationInfo,.publicationInfo>p{font-size:15px;line-height:1.8}
+  .siteDisclaimer{font-size:14px}
+  .siteDisclaimer summary{font-size:15px}
+  .siteDisclaimerBody h3{font-size:16px}
+  .scopeSummary div{grid-template-columns:66px minmax(0,1fr);gap:12px}
+  .todayReleaseHeading{font-size:21px}
+  .seriesEyebrow{font-size:13px}
+  .releaseDate{font-size:15px}
+  .anniversaryBadge{font-size:14px}
+  .releaseCard dt{font-size:13px}
+  .releaseCard dd,.textButton{font-size:14px}
+  .datePickerToggle{font-size:14px}
+  .datePickerToggle small{font-size:12px}
+  .calendarControls .todayButton{font-size:15px}
+  .datePickerPanel>label,.monthPickerLabel{font-size:13px}
+  .datePickerPanel select{font-size:16px}
+  .monthPickerGrid button{font-size:15px}
+  .calendarSeriesFilter{font-size:13px}
+  .calendarSeriesFilter strong{font-size:14px}
+  .calendarSeriesFilter small{font-size:12px}
+  .calendarTapHint{font-size:13px}
+  .weekdayRow div{font-size:14px}
+  .calendarCell{min-height:178px}
+  .dayNumber{flex-basis:27px;font-size:19px}
+  .dayNumber em{font-size:10px}
+  .miniRelease b{font-size:13px}
+  .miniRelease small{font-size:11px}
+  .moreCount{font-size:12px}
+  .seriesLegend span{font-size:13px}
+  .registeredOrderNote{font-size:13px}
+  .registeredCount{font-size:14px}
+  .titleFilter>label{font-size:13px}
+  .titleFilterControl select{font-size:15px}
+  .registeredTable thead th{font-size:12px}
+  .registeredTable th,.registeredTable td{font-size:14px}
+  .registeredTable tbody th{font-size:15px}
+  .shortTitleValue{font-size:14px}
+  .releaseTypeTag{font-size:12px}
+  .releaseModal header p{font-size:14px}
+  .modalList small,.modalList p{font-size:12px}
+  .modalList h3{font-size:17px}
+  .modalList strong{font-size:15px}
+}
+
+.calendarSeriesFilter small{color:inherit;font-size:12px;font-weight:800}
+@media(max-width:720px){.calendarSeriesFilter small{font-size:11px}}
+@media(min-width:721px){.calendarSeriesFilter small{font-size:14px}}
+
+.footerDisclaimer{font-size:12px;line-height:1.8}
+@media(max-width:720px){.footerDisclaimer{font-size:11px;line-height:1.8}}
+.unofficialLabel{font-size:.45em}
+.titleCakeIcon{align-self:flex-start;margin-top:2px}
+.titleCakeIcon{overflow:hidden;background:#fffaf1;object-fit:cover}
+.titleCakeIcon::before,.titleCakeIcon::after,.titleCakeCandle,.titleCakeFlame{display:none}
+.calendarSeriesFilter small{font-size:11px}
+@media(max-width:720px){.calendarSeriesFilter small{font-size:10px}}
+@media(min-width:721px){.calendarSeriesFilter small{font-size:12px}}
+.registeredMeta{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+@media(max-width:720px){.registeredMeta{display:grid;gap:2px;font-size:11px}}
+.footerContact{margin:10px 0 0;color:var(--muted);font-size:11px}
+.footerContact a{color:#315f8b;font-weight:800;text-underline-offset:3px}
+
+/* 折りたたみ内の作品カードは、掲載作品一覧と同じ項目を最初から見せる。 */
+.todayContent{margin-top:14px}
+.todayReleaseHeading{margin:11px 0 8px}
+.todayReleaseList{gap:8px}
+.todayReleaseCard{padding:18px 150px 18px 20px}
+.todayReleaseCard h3{margin:5px 0 0;font-size:19px;line-height:1.35}
+.todayReleaseCard .anniversaryBadge{right:18px;top:18px;padding:7px 10px;font-size:13px}
+.todayReleaseFacts{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;margin:16px 0 0!important;padding-top:13px;border-top:1px solid #ebe7df}
+.todayReleaseFacts div{display:block!important;min-width:0}
+.todayReleaseFacts dt{font-size:11px!important}
+.todayReleaseFacts dd{margin-top:3px!important;font-size:13px!important;overflow-wrap:anywhere}
+
+/* 詳細シートでは一覧から省いた情報をまとめて表示する。 */
+.modalList article{grid-template-columns:5px minmax(0,1fr);align-items:stretch}
+.modalGameContent{min-width:0}
+.modalGameTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.modalGameTop strong{flex:none;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--series-color) 12%,white)}
+.modalGameDetails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;margin:16px 0 0;padding-top:14px;border-top:1px solid #ebe7df}
+.modalGameDetails div{min-width:0}
+.modalGameDetails dt{color:var(--muted);font-size:11px;font-weight:700}
+.modalGameDetails dd{margin:3px 0 0;font-size:13px;font-weight:700;overflow-wrap:anywhere}
+
+@media(max-width:720px){
+  .todayContent{margin-top:10px}
+  .todayReleaseHeading{margin:8px 0 7px;font-size:16px}
+  .todayReleaseCard{padding:15px 12px}
+  .todayReleaseCard .seriesEyebrow{font-size:10px}
+  .todayReleaseCard h3{margin:4px 0 0;padding-right:92px;font-size:16px;line-height:1.3}
+  .todayReleaseCard .anniversaryBadge{right:11px;top:12px;padding:5px 7px;font-size:11px}
+  .todayReleaseFacts{grid-template-columns:1fr 1fr;gap:10px 12px;margin-top:13px!important;padding-top:11px}
+  .todayReleaseFacts dt{font-size:10px!important}
+  .todayReleaseFacts dd{font-size:12px!important}
+  .modalGameDetails{grid-template-columns:1fr 1fr;gap:10px 12px}
+  .modalGameDetails dt{font-size:10px}
+  .modalGameDetails dd{font-size:12px}
+}
+
+/* 本日の作品一覧は初期状態で閉じ、月間カレンダーをすぐ見つけられるようにする。 */
+.todayReleasesDisclosure{overflow:hidden;border:1px solid #d5cfc3;border-radius:13px;background:#fff}
+.todayReleasesDisclosure>summary{display:flex;align-items:center;justify-content:space-between;min-height:50px;padding:7px 10px 7px 15px;cursor:pointer;list-style:none}
+.todayReleasesDisclosure>summary::-webkit-details-marker{display:none}
+.todayReleasesDisclosure>summary:hover{background:#fbf8f1}
+.todayReleaseSummaryLabel{display:flex;align-items:baseline;gap:10px;min-width:0}
+.todayReleaseSummaryLabel strong{font-size:17px}
+.todayReleaseSummaryLabel small{color:var(--muted);font-size:12px;font-weight:800}
+.todayReleaseToggle{display:grid;flex:none;width:30px;height:30px;place-items:center;border:1px solid #c9c1b4;border-radius:999px;background:#f6f2e9;color:#48515a}
+.todayReleaseToggle b{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-1px,-1px)}
+.todayReleasesDisclosure[open] .todayReleaseToggle b{transform:rotate(225deg) translate(-1px,-1px)}
+.todayReleasesDisclosure .todayReleaseList{padding:8px 10px 10px;border-top:1px solid #e5e0d7;background:#f7f4ee}
+.todaySection.hasReleases+.calendarSection{margin-top:18px}
+
+@media(max-width:720px){
+  .todayReleasesDisclosure>summary{min-height:46px;padding:6px 8px 6px 12px}
+  .todayReleaseSummaryLabel strong{font-size:15px}
+  .todayReleaseSummaryLabel small{font-size:11px}
+  .todayReleaseToggle{width:28px;height:28px}
+  .todayReleasesDisclosure .todayReleaseList{padding:7px}
+  .todaySection.hasReleases+.calendarSection{margin-top:14px}
+}

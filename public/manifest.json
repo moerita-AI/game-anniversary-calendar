@@ -1,0 +1,15 @@
+{
+  "name": "スクエニ作品 発売記念日カレンダー",
+  "short_name": "SE記念日",
+  "description": "スクエニ関連作品の非公式発売記念日カレンダー",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#17212b",
+  "lang": "ja",
+  "icons": [
+    { "src": "./icons/cake-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/cake-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
