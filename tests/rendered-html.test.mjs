@@ -159,6 +159,7 @@ test("shows the registered-list fields as soon as today's foldout opens", async 
   assert.match(card, /<dt>種別<\/dt>/);
   assert.match(card, /className="shortTitleValue"/);
   assert.match(card, /className=\{`releaseTypeTag/);
+  assert.doesNotMatch(card, /className="seriesEyebrow"/);
   assert.doesNotMatch(card, /releaseCardTapTarget|onDetails|詳細を見る/);
   assert.match(css, /\.todayReleaseFacts\{display:grid!important;grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
   assert.doesNotMatch(css, /\.todayReleaseFacts div:nth-child\(3\)\{grid-column:1\/-1\}/);
@@ -179,8 +180,11 @@ test("matches calendar-day cards to the registered-list fields", async () => {
   assert.match(modal, /<dt>種別<\/dt>/);
   assert.match(modal, /className="shortTitleValue"/);
   assert.match(modal, /className=\{`releaseTypeTag/);
+  assert.doesNotMatch(modal, /<small>\{gameSeries\?\.name/);
   assert.doesNotMatch(modal, /発売地域|発売元|開発元|modalDescription|modalSources/);
   assert.doesNotMatch(modal, /詳しい情報/);
   assert.match(css, /\.modalGameDetails\{display:grid;grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.modalGameDetails \.shortTitleValue\{color:#404a54\}/);
+  assert.match(css, /\.miniRelease b\{color:var\(--ink\)\}/);
   assert.match(css, /@media\(max-width:720px\)[\s\S]*?\.modalGameDetails\{grid-template-columns:1fr 1fr/);
 });

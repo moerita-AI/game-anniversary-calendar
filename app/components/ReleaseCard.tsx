@@ -11,7 +11,6 @@ const typeLabels: Record<ReleaseType, string> = {
 export function ReleaseCard({ game, year }: { game: GameRelease; year: number }) {
   const gameSeries = seriesById.get(game.seriesId);
   return <article className="releaseCard todayReleaseCard" style={{ "--series-color": gameSeries?.color ?? "#58616b" } as React.CSSProperties}>
-    <div className="seriesEyebrow"><span aria-hidden="true" />{gameSeries?.name ?? "その他"}</div>
     <h3>{game.title}</h3>
     <div className="anniversaryBadge">{anniversaryInYear(game, year)}</div>
     <dl className="todayReleaseFacts">
