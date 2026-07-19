@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moerita-ai.github.io/game-anniversary-calendar/sitemap.xml

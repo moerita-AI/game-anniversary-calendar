@@ -1,7 +1,7 @@
 {
   "name": "スクエニ作品 発売記念日カレンダー",
   "short_name": "SE記念日",
-  "description": "スクエニ関連作品の非公式発売記念日カレンダー",
+  "description": "スクエニ作品の発売日と周年を確認できる非公式ファン向けカレンダー",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",

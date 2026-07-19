@@ -1,9 +1,49 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteUrl = "https://moerita-ai.github.io/game-anniversary-calendar/";
+const siteTitle = "スクエニ作品 発売記念日カレンダー（非公式）｜ゲームの周年情報";
+const siteDescription = "FINAL FANTASY、ドラゴンクエスト、サガ、聖剣伝説など、スクエニ作品の発売日と周年を日本時間で確認できる非公式ファン向けカレンダー。今日の記念日、月間カレンダー、掲載作品一覧を収録しています。";
+
 export const metadata: Metadata = {
-  title: "スクエニ作品 発売記念日カレンダー",
-  description: "スクエニおよび関連作品の発売日・周年を毎日楽しむ非公式ファンカレンダー。",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: "スクエニ作品 発売記念日カレンダー",
+  authors: [{ name: "MoeLINE4", url: "https://x.com/MoeLINE4" }],
+  creator: "MoeLINE4",
+  alternates: { canonical: siteUrl },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: siteUrl,
+    siteName: "スクエニ作品 発売記念日カレンダー",
+    title: siteTitle,
+    description: siteDescription,
+    images: [{
+      url: `${siteUrl}icons/cake-512.png`,
+      width: 512,
+      height: 512,
+      alt: "3本のろうそくを立てた記念日ケーキのアイコン",
+    }],
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+    images: [`${siteUrl}icons/cake-512.png`],
+  },
   manifest: "/manifest.json",
   icons: {
     icon: [

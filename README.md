@@ -99,6 +99,8 @@ app/
   globals.css        レスポンシブデザイン
 public/
   manifest.json      PWAメタデータ
+  robots.txt         検索エンジン向けクロール方針
+  sitemap.xml        検索エンジン向けサイトマップ
   sw.js              オフライン用サービスワーカー
 src/
   main.tsx           GitHub Pages用エントリー
@@ -110,6 +112,10 @@ src/
 
 主要9シリーズの確認済み作品と公式情報源は `app/data/majorSeriesVerification.ts` で管理しています。確認内容と掲載判断は `docs/major-series-verification.md` に記録しています。
 
+## 検索エンジンへの登録
+
+公開ページには、正規URL、検索結果向けの説明、OGP、構造化データ、`robots.txt`、`sitemap.xml` を設定しています。Google Search ConsoleではURLプレフィックスとして `https://moerita-ai.github.io/game-anniversary-calendar/` を登録し、`https://moerita-ai.github.io/game-anniversary-calendar/sitemap.xml` を送信してください。検索結果への掲載時期や順位は検索エンジン側の判断となります。
+
 ## 今後の候補
 
-お気に入り、詳細URL、ダークモード、CSV変換、SEO/OGP拡充、Vitest/Testing Libraryによるテスト拡充が候補です。
+お気に入り、詳細URL、ダークモード、CSV変換、Vitest/Testing Libraryによるテスト拡充が候補です。

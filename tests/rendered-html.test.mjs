@@ -29,7 +29,7 @@ test("renders the calendar and its publication notices", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>スクエニ作品 発売記念日カレンダー<\/title>/);
+  assert.match(html, /<title>スクエニ作品 発売記念日カレンダー（非公式）｜ゲームの周年情報<\/title>/);
   assert.match(html, /スクエニ作品<br\/>発売記念日カレンダー/);
   assert.match(html, /class="titleCakeIcon"/);
   assert.doesNotMatch(html, /titleCakeCandle|titleCakeFlame/);
@@ -108,6 +108,29 @@ test("uses the three-candle cake icon for the page and installed app", async () 
   assert.deepEqual(manifest.icons.map((icon) => icon.src), ["./icons/cake-192.png", "./icons/cake-512.png"]);
   assert.deepEqual(icon192.subarray(0, 8), pngSignature);
   assert.deepEqual(icon512.subarray(0, 8), pngSignature);
+});
+
+test("publishes indexable metadata and discovery files", async () => {
+  const [layout, staticIndex, robots, sitemap] = await Promise.all([
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../index.html", import.meta.url), "utf8"),
+    readFile(new URL("../public/robots.txt", import.meta.url), "utf8"),
+    readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8"),
+  ]);
+
+  const canonicalUrl = "https://moerita-ai.github.io/game-anniversary-calendar/";
+  assert.match(layout, /alternates: \{ canonical: siteUrl \}/);
+  assert.match(layout, /index: true/);
+  assert.match(layout, /openGraph:/);
+  assert.match(layout, /twitter:/);
+  assert.match(staticIndex, new RegExp(`<link rel="canonical" href="${canonicalUrl}"`));
+  assert.match(staticIndex, /<meta name="robots" content="index, follow/);
+  assert.match(staticIndex, /<script type="application\/ld\+json">/);
+  assert.match(staticIndex, /"@type": "WebSite"/);
+  assert.match(staticIndex, /<noscript>/);
+  assert.doesNotMatch(`${layout}\n${staticIndex}\n${robots}`, /noindex/i);
+  assert.match(robots, new RegExp(`Sitemap: ${canonicalUrl}sitemap\\.xml`));
+  assert.match(sitemap, new RegExp(`<loc>${canonicalUrl}<\\/loc>`));
 });
 
 test("keeps the compact introduction ordered and fluid", async () => {
